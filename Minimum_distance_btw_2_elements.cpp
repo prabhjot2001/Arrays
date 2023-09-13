@@ -40,10 +40,46 @@ int solution(vector<int>&v, int x, int y)
     return minDist;
 }
 
+
+
+int solution2(vector<int>&v, int x, int y)
+{
+    int minDist = INT_MAX;
+    int _1stFound;
+    int idx =0 ;
+
+   
+   for(;idx<v.size();idx++)
+   {
+     if(v[idx] == x or v[idx] == y){
+         _1stFound = idx;
+         break;
+     }
+   }
+
+   for(; idx<v.size();idx++ )
+   {
+      if(v[idx]==x or v[idx]==y){
+        if(v[idx] != v[_1stFound])
+        {
+            minDist = min(minDist, abs(idx-_1stFound));
+            _1stFound = idx;
+        }
+        else{
+            _1stFound = idx;
+        }
+      }
+   }
+  
+
+   return minDist;
+}
+
+
 int main(){
 
     vector<int>v = {3,5,4,2,6,5,6,6,5,4,8,3};
     int x,y;
     cin>>x>>y;
-    cout<<solution(v,x,y);
+    cout<<solution2(v,x,y);
 }
