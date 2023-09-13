@@ -42,7 +42,7 @@ int solution(vector<int>&v, int x, int y)
 
 
 
-int solution2(vector<int>&v, int x, int y)
+int solution2(vector<int>&v, int x, int y)  // optimized solution
 {
     int minDist = INT_MAX;
     int _1stFound;
